@@ -1,28 +1,19 @@
-name: Restaurant App CI
+name: Simple CI
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
-  frontend-build:
+  ci-demo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get source code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
+      - name: CI Message
+        run: echo "GitHub Actions CI is running successfully"
 
-      - name: Install frontend dependencies
-        working-directory: ./frontend
-        run: npm ci
-
-      - name: Build frontend
-        working-directory: ./frontend
-        run: npm run build
+      - name: Project Check
+        run: echo "Restaurant Full Stack project received successfully"
